@@ -1,30 +1,62 @@
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const Offer = ({ data }) => {
+// price
+// marque taille etat couleur emplacement
+// ---------------------------
+// product_name
+// commentaire
+// user_name
+
+const Offer = () => {
   const { id } = useParams();
-  // console.log(id);
-  // console.log(data);
-  //   const test = data.find((elem) => data.offers._id === { id });
-  //   console.log(test);
-  return (
+
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.meassage);
+      }
+    };
+    fetchData();
+  }, [id]);
+
+  return isLoading ? (
+    <span>En cours de chargement...</span>
+  ) : (
     <div className="item-container">
-      {/* <div>Product id : {id}</div> */}
-      {data.offers.map((elem, index) => {
-        if (elem._id === id) {
-          return (
-            <div className="item-info">
-              <img
-                className="img-offer"
-                src={elem.product_pictures[0].secure_url}
-                alt=""
-              />
-              <div className="product-info">
-                <p>{elem.product_price}</p>
-              </div>
+      <img className="img-offer" src={data.product_image.secure_url} alt="" />
+      <p>{data.product_name}</p>
+      <p>{data.product_price}</p>
+
+      {data.product_details.map((elem, index) => {
+        const keys = Object.keys(elem);
+        return (
+          <div className="item-info">
+            <div className="product-info">
+              <p>
+                {keys[0]} : {elem[keys[0]]}
+              </p>
             </div>
-          );
-        } else return null;
+          </div>
+        );
       })}
+      <div className="div-border"></div>
+      <div className="div2">
+        {/* <p>{elem.product_name}</p> */}
+        <p className="p2">{data.product_description}</p>
+        <p>{data.owner.account.username}</p>
+        <button>Acheter</button>
+      </div>
     </div>
   );
 };
