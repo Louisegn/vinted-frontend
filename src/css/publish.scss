@@ -1,0 +1,16 @@
+.publish-container {
+  border: red solid 2px;
+  height: 100vh;
+  background-color: #eaedee;
+  display: flex;
+  justify-content: center;
+  .publish-form {
+    border: red solid 1px;
+    width: 1280px;
+    // div {
+    //   display: flex;
+    //   width: 100%;
+    //   border: green solid 2px;
+    // }
+  }
+}

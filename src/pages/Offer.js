@@ -35,27 +35,27 @@ const Offer = () => {
   ) : (
     <div className="item-container">
       <img className="img-offer" src={data.product_image.secure_url} alt="" />
-      <p>{data.product_name}</p>
-      <p>{data.product_price}</p>
+      <div className="item-info">
+        <p>{data.product_price}</p>
 
-      {data.product_details.map((elem, index) => {
-        const keys = Object.keys(elem);
-        return (
-          <div className="item-info">
+        {data.product_details.map((elem, index) => {
+          const keys = Object.keys(elem);
+          return (
             <div className="product-info">
               <p>
                 {keys[0]} : {elem[keys[0]]}
               </p>
             </div>
-          </div>
-        );
-      })}
-      <div className="div-border"></div>
-      <div className="div2">
-        {/* <p>{elem.product_name}</p> */}
-        <p className="p2">{data.product_description}</p>
-        <p>{data.owner.account.username}</p>
-        <button>Acheter</button>
+          );
+        })}
+        <div className="div-border"></div>
+        <div className="div2">
+          <p>{data.product_name}</p>
+
+          <p className="p2">{data.product_description}</p>
+          <p>{data.owner.account.username}</p>
+          <button>Acheter</button>
+        </div>
       </div>
     </div>
   );
