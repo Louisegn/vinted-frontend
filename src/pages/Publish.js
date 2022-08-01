@@ -18,7 +18,7 @@ const Publish = ({ token }) => {
   console.log(token);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("HEYYY", token);
     const formData = new FormData();
     formData.append("picture", picture);
     formData.append("title", title);
@@ -36,7 +36,7 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            authorization: "Bearer" + token,
+            authorization: "Bearer " + token,
             "Content-Type": "multipart/form-data",
           },
         }
