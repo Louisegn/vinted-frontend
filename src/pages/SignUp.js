@@ -1,6 +1,8 @@
+import "../css/signup.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 // "email": "johndoe@lereacteur.io",
 // "username": "JohnDoe",
@@ -44,9 +46,11 @@ const SignUp = ({ setUser }) => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
+    <div className="signup-main">
+      <h2>S'inscrire</h2>
+      <form className="form-container" onSubmit={handleSubmit}>
         <input
+          className="input-text"
           type="text"
           placeholder="Nom d'utilisateur"
           value={name}
@@ -55,6 +59,7 @@ const SignUp = ({ setUser }) => {
           }}
         />
         <input
+          className="input-text"
           type="text"
           placeholder="Email"
           value={email}
@@ -63,6 +68,7 @@ const SignUp = ({ setUser }) => {
           }}
         />
         <input
+          className="input-text"
           type="text"
           placeholder="Mot de passe"
           value={password}
@@ -70,15 +76,26 @@ const SignUp = ({ setUser }) => {
             setPassword(event.target.value);
           }}
         />
-        <input
-          type="checkbox"
-          onChange={() => {
-            setNewsletter(!newsletter);
-          }}
-        />
-        <input type="submit" value="S'inscrire" />
+
+        <div className="input-check">
+          <input
+            type="checkbox"
+            onChange={() => {
+              setNewsletter(!newsletter);
+            }}
+          />
+          <p>S'inscrire à notre newsletter</p>
+        </div>
+        <p>
+          En m'inscrivant je confirme avoir lu et accepté les Termes &
+          Conditions et Politique de Confidentialité de Vinted. Je confirme
+          avoir au moins 18 ans.
+        </p>
+
+        <input className="signup-submit" type="submit" value="S'inscrire" />
         <p>{errorMessage}</p>
       </form>
+      <Link to="/user/login">Tu as déjà un compte ? Connecte-toi !</Link>
     </div>
   );
 };

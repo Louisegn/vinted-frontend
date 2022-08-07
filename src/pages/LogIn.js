@@ -1,3 +1,6 @@
+import "../css/login.scss";
+import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -6,6 +9,7 @@ import axios from "axios";
 const LogIn = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,15 +23,19 @@ const LogIn = ({ setUser }) => {
       );
       // console.log("COOKIE", response.data.token);
       setUser(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="login-main">
+      <h2>Se connecter</h2>
+
+      <form className="form-container" onSubmit={handleSubmit}>
         <input
+          className="input-text"
           type="text"
           placeholder="Adresse email"
           value={email}
@@ -36,14 +44,15 @@ const LogIn = ({ setUser }) => {
           }}
         />
         <input
+          className="input-text"
           type="text"
-          placeholde="Mot de passe"
+          placeholder="Mot de passe"
           value={password}
           onChange={(event) => {
             setPassword(event.target.value);
           }}
         />
-        <input type="submit" value="Se connecter" />
+        <input className="input-submit" type="submit" value="Se connecter" />
       </form>
       <Link to="/user/signup">Pas encore de compte ? Inscris-toi !</Link>
     </div>

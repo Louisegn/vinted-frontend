@@ -1,7 +1,10 @@
+import "./css/reset.css";
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
+
+// page payment + composent
 
 //pages
 import Header from "./components/Header";
@@ -10,6 +13,7 @@ import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("cookie") || null);
@@ -62,6 +66,7 @@ function App() {
                 sort={sort}
                 skip={skip}
                 limit={limit}
+                token={token}
               />
             }
           />
@@ -75,6 +80,7 @@ function App() {
             element={<LogIn setUser={setUser} />}
           ></Route>
           <Route path="/publish" element={<Publish token={token} />}></Route>
+          <Route path="/payment" element={<Payment />}></Route>
         </Routes>
       </Router>
     </div>

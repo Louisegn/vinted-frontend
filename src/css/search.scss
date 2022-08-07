@@ -1,0 +1,36 @@
+.search-container {
+  //   border: black solid 2px;
+  margin-top: 10px;
+  .top-part {
+    position: relative;
+    color: #bbbbbb;
+    .input-text {
+      height: 40px;
+      width: 632px;
+      background-color: #f5f6f7;
+      border: none;
+      border-radius: 8px;
+      padding-left: 40px;
+      box-sizing: border-box;
+      font-size: 20px;
+    }
+    .fa-magnifying-glass {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+    }
+  }
+  .bottom-part {
+    // border: green solid 2px;
+    margin: 10px 0;
+    .sort-part {
+      //   border: blue solid 2px;
+      display: flex;
+      p {
+        font-size: 12px;
+        line-height: 10px;
+        margin-right: 4px;
+      }
+    }
+  }
+}

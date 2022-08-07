@@ -48,112 +48,132 @@ const Publish = ({ token }) => {
     }
   };
   return (
-    <div className="publish-container">
-      <form className="publish-form" onSubmit={handleSubmit}>
-        {/* <label for="img_upload">Ajouter une photo</label> */}
-        <input
-          type="file"
-          onChange={(event) => {
-            // console.log(event.target.files[0]);
-            setPicture(event.target.files[0]);
-          }}
-        />
-        <div>
-          <p>Titre</p>
-          <input
-            type="text"
-            placeholder=""
-            value={title}
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
-        </div>
+    <div className="publish-main">
+      <div className="publish-container">
+        <h2>Vends ton article</h2>
+        <form className="publish-form" onSubmit={handleSubmit}>
+          {/* <label for="img_upload">Ajouter une photo</label> */}
+          <div className="div-container file-container">
+            <input
+              className="input-file"
+              type="file"
+              onChange={(event) => {
+                // console.log(event.target.files[0]);
+                setPicture(event.target.files[0]);
+              }}
+            />
+          </div>
 
-        <div>
-          <p>Décris ton article</p>{" "}
-          <input
-            type="text"
-            placeholder=""
-            value={description}
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <p>Marque</p>
-          <input
-            type="text"
-            placeholder=""
-            value={brand}
-            onChange={(event) => {
-              setBrand(event.target.value);
-            }}
-          />
-        </div>
+          <div className="div-container title-descript">
+            <div className="form-container">
+              <p>Titre</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={title}
+                onChange={(event) => {
+                  setTitle(event.target.value);
+                }}
+              />
+            </div>
+            <div className="form-container descript">
+              <p>Décris ton article</p>
+              <input
+                className="input-text "
+                type="text"
+                placeholder=""
+                value={description}
+                onChange={(event) => {
+                  setDescription(event.target.value);
+                }}
+              />
+            </div>
+          </div>
+          <div className="div-container others">
+            <div className="form-container">
+              <p>Marque</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={brand}
+                onChange={(event) => {
+                  setBrand(event.target.value);
+                }}
+              />
+            </div>
 
-        <div>
-          <p>Taille</p>
-          <input
-            type="text"
-            placeholder=""
-            value={size}
-            onChange={(event) => {
-              setSize(event.target.value);
-            }}
-          />
-        </div>
+            <div className="form-container">
+              <p>Taille</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={size}
+                onChange={(event) => {
+                  setSize(event.target.value);
+                }}
+              />
+            </div>
 
-        <div>
-          <p>Couleur</p>
-          <input
-            type="text"
-            placeholder=""
-            value={color}
-            onChange={(event) => {
-              setColor(event.target.value);
-            }}
-          />
-        </div>
+            <div className="form-container">
+              <p>Couleur</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={color}
+                onChange={(event) => {
+                  setColor(event.target.value);
+                }}
+              />
+            </div>
 
-        <div>
-          <p>Etat</p>
-          <input
-            type="text"
-            placeholder=""
-            value={condition}
-            onChange={(event) => {
-              setCondition(event.target.value);
-            }}
-          />
-        </div>
+            <div className="form-container">
+              <p>Etat</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={condition}
+                onChange={(event) => {
+                  setCondition(event.target.value);
+                }}
+              />
+            </div>
 
-        <div>
-          <p>Lieu</p>
-          <input
-            type="text"
-            placeholder=""
-            value={city}
-            onChange={(event) => {
-              setCity(event.target.value);
-            }}
-          />
-        </div>
+            <div className="form-container">
+              <p>Lieu</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={city}
+                onChange={(event) => {
+                  setCity(event.target.value);
+                }}
+              />
+            </div>
+          </div>
+          <div className="div-container">
+            <div className="form-container">
+              <p>Prix</p>
+              <input
+                className="input-text"
+                type="text"
+                placeholder=""
+                value={price}
+                onChange={(event) => {
+                  setPrice(event.target.value);
+                }}
+              />
+            </div>
+          </div>
 
-        <div>
-          <p>Prix</p>
-          <input
-            type="text"
-            placeholder=""
-            value={price}
-            onChange={(event) => {
-              setPrice(event.target.value);
-            }}
-          />
-        </div>
-        <input type="submit" value="Ajouter" />
-      </form>
+          <input className="input-submit" type="submit" value="Ajouter" />
+        </form>
+      </div>
     </div>
   );
 };

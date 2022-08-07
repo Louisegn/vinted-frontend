@@ -1,41 +1,10 @@
-* {
-  font-family: sans-serif;
+body {
+  font-family: "Maison Neuve", sans-serif;
 }
 
 /* HEADER */
 
-.vinted-header {
-  display: flex;
-  justify-content: space-around;
-  border-bottom: gray solid 1px;
-  color: #90d8dd;
-}
-
 /* HOME */
-
-.home-container {
-  display: flex;
-  justify-content: center;
-}
-
-.home-container > div {
-  /* border: green solid 2px; */
-  max-width: 70rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.items {
-  /* border: red solid 1px; */
-}
-
-.img-items {
-  height: 20rem;
-  width: 12.5rem;
-  margin: 0.3rem;
-  object-fit: cover;
-}
 
 /* OFFER */
 
@@ -106,21 +75,4 @@
 
 .div2 .p2 {
   color: #848484;
-}
-
-/* SIGNUP */
-
-.form-container {
-  border: red solid 2px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-form {
-  border: green solid 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
