@@ -14,13 +14,10 @@ const LogIn = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const response = await axios.post("http://localhost:3000/user/login", {
+        email: email,
+        password: password,
+      });
       // console.log("COOKIE", response.data.token);
       setUser(response.data.token);
       navigate("/");

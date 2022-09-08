@@ -4,12 +4,25 @@
   flex-direction: column;
   align-items: center;
 
-  .banner {
-    width: 100%;
+  .banner-div {
     height: 400px;
-    object-fit: cover;
+    width: 100%;
     position: relative;
+    background-color: red;
+    .banner {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .tear {
+      position: absolute;
+      width: 60%;
+      bottom: 0px;
+      right: 0px;
+      z-index: 6;
+    }
   }
+
   .mini-container {
     height: 300px;
     width: 350px;

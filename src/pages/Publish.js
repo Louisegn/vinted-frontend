@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "../css/publish.scss";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Publish = ({ token }) => {
   //   const [data, setData] = useState();
+  const navigate = useNavigate();
 
   const [picture, setPicture] = useState(null);
   const [title, setTitle] = useState("");
@@ -15,10 +17,10 @@ const Publish = ({ token }) => {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
 
-  console.log(token);
+  // console.log(token);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("HEYYY", token);
+    // console.log("HEYYY", token);
     const formData = new FormData();
     formData.append("picture", picture);
     formData.append("title", title);
@@ -32,7 +34,7 @@ const Publish = ({ token }) => {
 
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        "http://localhost:3000/offer/publish",
         formData,
         {
           headers: {
@@ -41,8 +43,9 @@ const Publish = ({ token }) => {
           },
         }
       );
-      console.log("RESPONSE", response.data);
-      //   setData(response.data);
+      console.log(response.data);
+      navigate("/");
+      // alert("good");
     } catch (error) {
       console.log(error.message);
     }

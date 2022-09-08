@@ -4,6 +4,7 @@ import axios from "axios";
 import "../css/home.scss";
 import "../css/font.css";
 import banner from "../assets/img/banner.jpeg";
+import tear from "../assets/img/tear.svg";
 
 const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
   const [data, setData] = useState();
@@ -19,8 +20,9 @@ const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
           value = "price-desc";
         }
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${title}&priceMin=${priceMin}&priceMax=${priceMax}&sort=${value}&skip=${skip}&limit=${limit}`
+          `http://localhost:3000/offers?title=${title}&priceMin=${priceMin}&priceMax=${priceMax}&sort=${value}&skip=${skip}&limit=${limit}`
         );
+        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -34,7 +36,11 @@ const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
     <span>En cours de chargement...</span>
   ) : (
     <div className="home-main">
-      <img className="banner" src={banner} alt="" />
+      <div className="banner-div">
+        <img className="banner" src={banner} alt="" />
+        <img className="tear" src={tear} alt="" />
+      </div>
+
       <div className="mini-container">
         <p>Prêts à faire du tri dans vos placards ?</p>
         <div className="articles-button">
@@ -55,11 +61,7 @@ const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
             <div key={index} className="items">
               <Link to={`/offer/${elem._id}`}>
                 <p className="p-user">{elem.owner.account.username}</p>
-                <img
-                  className="img-items"
-                  src={elem.product_image.secure_url}
-                  alt=""
-                />
+                <img className="img-items" src={elem.product_image} alt="" />
                 <p className="p-price">{elem.product_price} €</p>
               </Link>
             </div>

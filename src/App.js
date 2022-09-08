@@ -33,7 +33,6 @@ function App() {
       Cookies.remove("cookie");
     }
     setToken(token);
-    console.log("YOOO", token);
   };
 
   return (
