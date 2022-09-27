@@ -18,6 +18,7 @@ import Payment from "./pages/Payment";
 function App() {
   const [token, setToken] = useState(Cookies.get("cookie") || null);
   // const [search, setSearch] = useState([]);
+  const [rangeValues, setRangeValues] = useState([0, 100000]);
 
   const [title, setTitle] = useState("");
   const [priceMin, setPriceMin] = useState("");
@@ -53,6 +54,8 @@ function App() {
           setSkip={setSkip}
           limit={limit}
           setLimit={setLimit}
+          rangeValues={rangeValues}
+          setRangeValues={setRangeValues}
         />
         <Routes>
           <Route
@@ -66,6 +69,7 @@ function App() {
                 skip={skip}
                 limit={limit}
                 token={token}
+                rangeValues={rangeValues}
               />
             }
           />

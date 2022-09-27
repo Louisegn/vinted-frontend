@@ -21,6 +21,7 @@
     }
   }
   .bottom-part {
+    display: flex;
     // border: green solid 2px;
     margin: 10px 0;
     .sort-part {
@@ -31,6 +32,14 @@
         line-height: 10px;
         margin-right: 4px;
       }
+    }
+    .slide-div {
+      border: red solid 1px;
+      height: 60px;
+      width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

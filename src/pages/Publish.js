@@ -73,7 +73,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="ex: Chemise Sezane verte"
                 value={title}
                 onChange={(event) => {
                   setTitle(event.target.value);
@@ -85,7 +85,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text "
                 type="text"
-                placeholder=""
+                placeholder="ex: porté quelquefois, taille correctement"
                 value={description}
                 onChange={(event) => {
                   setDescription(event.target.value);
@@ -99,7 +99,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="ex: Zara"
                 value={brand}
                 onChange={(event) => {
                   setBrand(event.target.value);
@@ -112,7 +112,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="ex: L/40/12"
                 value={size}
                 onChange={(event) => {
                   setSize(event.target.value);
@@ -125,7 +125,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="ex: Fushia"
                 value={color}
                 onChange={(event) => {
                   setColor(event.target.value);
@@ -138,7 +138,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="ex: Neuf avec étiquette"
                 value={condition}
                 onChange={(event) => {
                   setCondition(event.target.value);
@@ -151,7 +151,7 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="ex: Paris"
                 value={city}
                 onChange={(event) => {
                   setCity(event.target.value);
@@ -165,12 +165,19 @@ const Publish = ({ token }) => {
               <input
                 className="input-text"
                 type="text"
-                placeholder=""
+                placeholder="0,00 €"
                 value={price}
                 onChange={(event) => {
                   setPrice(event.target.value);
                 }}
               />
+            </div>
+            <div className="form-container">
+              <p></p>
+              <div className="input-checkbox">
+                <input type="checkbox" />
+                <p>Je suis intéressé(e) par les échanges</p>
+              </div>
             </div>
           </div>
 

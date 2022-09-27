@@ -6,7 +6,16 @@ import "../css/font.css";
 import banner from "../assets/img/banner.jpeg";
 import tear from "../assets/img/tear.svg";
 
-const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
+const Home = ({
+  title,
+  priceMin,
+  priceMax,
+  sort,
+  skip,
+  limit,
+  token,
+  rangeValues,
+}) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,9 +29,9 @@ const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
           value = "price-desc";
         }
         const response = await axios.get(
-          `http://localhost:3000/offers?title=${title}&priceMin=${priceMin}&priceMax=${priceMax}&sort=${value}&skip=${skip}&limit=${limit}`
+          `http://localhost:3000/offers?title=${title}&priceMin=${rangeValues[0]}&priceMax=${rangeValues[1]}&sort=${value}&skip=${skip}&limit=${limit}`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -30,7 +39,7 @@ const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
       }
     };
     fetchData();
-  }, [title, priceMin, priceMax, sort, skip, limit]);
+  }, [title, priceMin, priceMax, sort, skip, limit, rangeValues]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>
@@ -61,7 +70,11 @@ const Home = ({ title, priceMin, priceMax, sort, skip, limit, token }) => {
             <div key={index} className="items">
               <Link to={`/offer/${elem._id}`}>
                 <p className="p-user">{elem.owner.account.username}</p>
-                <img className="img-items" src={elem.product_image} alt="" />
+                <img
+                  className="img-items"
+                  src={elem.product_image.secure_url}
+                  alt=""
+                />
                 <p className="p-price">{elem.product_price} €</p>
               </Link>
             </div>

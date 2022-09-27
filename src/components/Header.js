@@ -18,6 +18,8 @@ const Header = ({
   setSkip,
   limit,
   setLimit,
+  rangeValues,
+  setRangeValues,
 }) => {
   // const [search, setSearch] = useState("");
   const navigate = useNavigate();
@@ -40,6 +42,7 @@ const Header = ({
         setSkip={setSkip}
         limit={limit}
         setLimit={setLimit}
+        setRangeValues={setRangeValues}
       />
       <div>
         <div className="right-part">
@@ -49,7 +52,6 @@ const Header = ({
                 <Link to="/user/signup">S'inscrire</Link>
               </div>
               <div className="button">
-                {" "}
                 <Link to="/user/login">Se connecter</Link>
               </div>
             </>

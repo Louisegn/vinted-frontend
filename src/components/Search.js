@@ -1,6 +1,6 @@
 // ?title=&priceMin&priceMax&sort&skip&limit
-// import { Range } from "react-range";
 import "../css/search.scss";
+import Slide from "./Slide";
 
 const Search = ({
   title,
@@ -15,6 +15,7 @@ const Search = ({
   setSkip,
   limit,
   setLimit,
+  setRangeValues,
 }) => {
   return (
     <div className="search-container">
@@ -44,6 +45,7 @@ const Search = ({
             }}
           />
         </div>
+        <Slide setRangeValues={setRangeValues} />
       </div>
     </div>
   );
