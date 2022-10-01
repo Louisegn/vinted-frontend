@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "../css/publish.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDropzone } from "react-dropzone";
 
 const Publish = ({ token }) => {
   //   const [data, setData] = useState();
@@ -16,7 +17,17 @@ const Publish = ({ token }) => {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
+  const [preview, setPreview] = useState(null);
 
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles[0]);
+    setPicture(acceptedFiles[0]);
+    setPreview(URL.createObjectURL(acceptedFiles[0]));
+  }, []);
+
+  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
+    onDrop,
+  });
   // console.log(token);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,27 +55,49 @@ const Publish = ({ token }) => {
         }
       );
       console.log(response.data);
-      navigate("/");
-      // alert("good");
+      // navigate("/");
+      alert("good");
     } catch (error) {
       console.log(error.message);
     }
   };
   return (
     <div className="publish-main">
+      <button
+        onClick={() => {
+          console.log(acceptedFiles[0]);
+        }}
+      ></button>
       <div className="publish-container">
         <h2>Vends ton article</h2>
         <form className="publish-form" onSubmit={handleSubmit}>
-          {/* <label for="img_upload">Ajouter une photo</label> */}
           <div className="div-container file-container">
-            <input
-              className="input-file"
-              type="file"
-              onChange={(event) => {
-                // console.log(event.target.files[0]);
-                setPicture(event.target.files[0]);
-              }}
-            />
+            {picture === null ? (
+              <div className="drop-zone--div">
+                <div {...getRootProps({ className: "dropzone" })}>
+                  <input className="input-zone" {...getInputProps()} />
+                  <div className="text-center">
+                    <p className="dropzone-content">+ Ajouter une photo</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="img-container">
+                <img
+                  className="preview"
+                  src={preview}
+                  style={{ width: "200px" }}
+                  alt=""
+                />
+                <button
+                  onClick={() => {
+                    setPicture(null);
+                  }}
+                >
+                  Supprimer la photo
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="div-container title-descript">
@@ -173,10 +206,11 @@ const Publish = ({ token }) => {
               />
             </div>
             <div className="form-container">
-              <p></p>
               <div className="input-checkbox">
-                <input type="checkbox" />
-                <p>Je suis intéressé(e) par les échanges</p>
+                <div>
+                  <input type="checkbox" />
+                  <p>Je suis intéressé(e) par les échanges</p>
+                </div>
               </div>
             </div>
           </div>

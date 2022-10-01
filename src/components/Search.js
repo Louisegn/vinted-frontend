@@ -35,7 +35,7 @@ const Search = ({
 
       <div className="bottom-part">
         <div className="sort-part">
-          <p>Trier par prix: </p>
+          {/* <p>Trier par prix: </p>
           <input
             className="input-check"
             type="checkbox"
@@ -43,7 +43,26 @@ const Search = ({
             onChange={() => {
               setSort(!sort);
             }}
-          />
+          /> */}
+          <span style={{ marginRight: 10 }}>Trier par prix : </span>
+          <span className="checkbox">
+            <input
+              type="checkbox"
+              checked={sort}
+              onChange={() => {}}
+              name="price"
+            />
+            <div
+              className="wrapper"
+              onClick={() => {
+                setSort(!sort);
+              }}
+            >
+              <div className="knob">
+                <span>{sort ? "⇣" : "⇡"}</span>
+              </div>
+            </div>
+          </span>
         </div>
         <Slide setRangeValues={setRangeValues} />
       </div>

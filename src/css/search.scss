@@ -26,15 +26,56 @@
     margin: 10px 0;
     .sort-part {
       //   border: blue solid 2px;
-      display: flex;
-      p {
-        font-size: 12px;
-        line-height: 10px;
-        margin-right: 4px;
+      // display: flex;
+      // p {
+      //   font-size: 12px;
+      //   line-height: 10px;
+      //   margin-right: 4px;
+      // }
+      .checkbox {
+        margin-right: 25px;
+      }
+      .checkbox input[name="price"] {
+        display: none;
+      }
+      button,
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+      button,
+      input {
+        outline: none;
+      }
+      .checkbox .wrapper {
+        align-items: center;
+        background-color: #2cb1ba;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-flex;
+        height: 20px;
+        outline: none;
+        width: 42px;
+      }
+      .checkbox .knob,
+      .home-loader {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .checkbox .knob {
+        background-color: #fff;
+        border: 1px solid #666;
+        border-radius: 100%;
+        font-weight: 700;
+        height: 16px;
+        left: 0;
+        position: relative;
+        transition: left 0.1s ease-in-out 0s;
+        width: 16px;
       }
     }
     .slide-div {
-      border: red solid 1px;
+      // border: red solid 1px;
       height: 60px;
       width: 500px;
       display: flex;

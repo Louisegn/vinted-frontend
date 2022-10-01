@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   .publish-container {
-    border: green solid 2px;
+    // border: green solid 2px;
     width: 1100px;
     h2 {
       font-size: 20px;
@@ -15,7 +15,7 @@
       padding-top: 10px;
     }
     .publish-form {
-      border: blue solid 2px;
+      // border: blue solid 2px;
       display: flex;
       width: 100%;
 
@@ -23,7 +23,7 @@
       align-items: center;
 
       .div-container {
-        border: aqua solid 2px;
+        // border: aqua solid 2px;
         margin-top: 20px;
         width: 100%;
         background-color: #ffffff;
@@ -35,17 +35,37 @@
         }
       }
       .file-container {
-        height: 100px;
+        // height: 100px;
         text-align: center;
         box-sizing: border-box;
-        padding-top: 38px;
-      }
-      .title-descript {
-        // height: 100px;
-      }
-
-      .others {
-        // height: 300px;
+        padding: 38px 0;
+        .drop-zone--div {
+          text-align: center;
+          padding: 20px;
+          border: 3px #d5d7d7 dashed;
+          width: 60%;
+          margin: auto;
+          cursor: pointer;
+        }
+        .img-container {
+          // border: red solid 1px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          img {
+            height: 270px;
+            width: 200px;
+            object-fit: cover;
+          }
+          button {
+            border: none;
+            background-color: #2db0ba;
+            color: white;
+            height: 22px;
+            border-radius: 6px;
+            margin-top: 20px;
+          }
+        }
       }
       .form-container {
         border: #d5d7d7 solid 1px;
@@ -58,24 +78,58 @@
         }
         input {
           width: 50%;
-          height: 28px;
+          height: 40px;
           border: none;
           border-bottom: #d5d7d7 solid 1px;
           margin-right: 20px;
           box-sizing: border-box;
+          text-decoration: none;
         }
         input::placeholder {
           color: #d5d7d7;
         }
+        .input-text:hover {
+          border: #d5d7d7 solid 1px;
+        }
         .input-checkbox {
           border: red solid 1px;
-          width: 50%;
+          width: 100%;
           display: flex;
-          justify-content: left;
-          input {
-            height: 20px;
+          justify-content: end;
+          div {
+            border: solid blue 1px;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: end;
+            input {
+              position: absolute;
+              height: 20px;
+              left: 110px;
+              top: 22px;
+            }
+            p {
+              width: 80%;
+              border: red solid 1px;
+              text-align: end;
+            }
           }
         }
+      }
+      .input-submit {
+        border: none;
+        background-color: #2db0ba;
+        color: white;
+        height: 40px;
+        width: 30%;
+        margin-top: 20px;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .input-submit:hover {
+        background-color: #017782;
       }
     }
   }

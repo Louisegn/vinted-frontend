@@ -9,6 +9,7 @@ const Slide = ({ setRangeValues }) => {
 
   return (
     <div className="slide-div">
+      <span style={{ marginRight: 10 }}>Prix entre : </span>
       <Range
         step={5}
         min={MIN}
@@ -35,7 +36,7 @@ const Slide = ({ setRangeValues }) => {
                 borderRadius: "4px",
                 background: getTrackBackground({
                   values: slideValues,
-                  colors: ["#ccc", " #017782", "#ccc"],
+                  colors: ["#ccc", " #2DB0BA", "#ccc"],
                   min: MIN,
                   max: MAX,
                 }),
@@ -54,8 +55,8 @@ const Slide = ({ setRangeValues }) => {
               height: "15px",
               width: "15px",
               borderRadius: "50%",
-              border: isDragged ? "" : "1px solid #017782",
-              backgroundColor: "#017782",
+              border: isDragged ? "" : "1px solid #2DB0BA",
+              backgroundColor: "#2DB0BA",
               outline: "none",
               display: "flex",
               justifyContent: "center",
@@ -66,9 +67,9 @@ const Slide = ({ setRangeValues }) => {
               style={{
                 position: "absolute",
                 top: "-28px",
-                color: "#017782",
+                color: "#2DB0BA",
                 fontSize: "12px",
-                fontFamily: "Maison Neue",
+                fontFamily: "sans serif",
                 padding: "4px",
                 borderRadius: "4px",
                 backgroundColor: "#fff",
