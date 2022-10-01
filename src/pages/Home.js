@@ -48,22 +48,22 @@ const Home = ({
       <div className="banner-div">
         <img className="banner" src={banner} alt="" />
         <img className="tear" src={tear} alt="" />
-      </div>
-
-      <div className="mini-container">
-        <p>Prêts à faire du tri dans vos placards ?</p>
-        <div className="articles-button">
-          {token === null ? (
-            <Link to="/user/login">
-              <div className="butt">Vends tes articles</div>
-            </Link>
-          ) : (
-            <Link to="/publish">
-              <div className="butt">Vends tes articles</div>
-            </Link>
-          )}
+        <div className="mini-container">
+          <p>Prêts à faire du tri dans vos placards ?</p>
+          <div className="articles-button">
+            {token === null ? (
+              <Link to="/user/login">
+                <div className="butt">Vends tes articles</div>
+              </Link>
+            ) : (
+              <Link to="/publish">
+                <div className="butt">Vends tes articles</div>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
+
       <div className="home-container">
         {data.offers.map((elem, index) => {
           return (

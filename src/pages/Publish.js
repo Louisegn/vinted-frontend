@@ -55,7 +55,7 @@ const Publish = ({ token }) => {
         }
       );
       console.log(response.data);
-      // navigate("/");
+      navigate("/");
       alert("good");
     } catch (error) {
       console.log(error.message);

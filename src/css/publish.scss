@@ -92,26 +92,28 @@
           border: #d5d7d7 solid 1px;
         }
         .input-checkbox {
-          border: red solid 1px;
+          // border: red solid 1px;
           width: 100%;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
           div {
-            border: solid blue 1px;
+            // border: solid blue 1px;
             width: 50%;
             display: flex;
             align-items: center;
             position: relative;
-            justify-content: end;
+            justify-content: flex-end;
+            padding-right: 20px;
+            padding-bottom: 10px;
             input {
               position: absolute;
               height: 20px;
-              left: 110px;
-              top: 22px;
+              left: 100px;
+              top: 20px;
             }
             p {
               width: 80%;
-              border: red solid 1px;
+              // border: red solid 1px;
               text-align: end;
             }
           }
