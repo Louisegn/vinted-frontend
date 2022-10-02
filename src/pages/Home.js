@@ -69,7 +69,17 @@ const Home = ({
           return (
             <div key={index} className="items">
               <Link to={`/offer/${elem._id}`}>
-                <p className="p-user">{elem.owner.account.username}</p>
+                <div className="user-info">
+                  {elem.owner.account.avatar.secure_url && (
+                    <img
+                      className="user-avatar"
+                      src={elem.owner.account.avatar.secure_url}
+                      alt=""
+                    />
+                  )}
+                  <p className="p-user">{elem.owner.account.username}</p>
+                </div>
+
                 <img
                   className="img-items"
                   src={elem.product_image.secure_url}

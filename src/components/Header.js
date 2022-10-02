@@ -26,7 +26,7 @@ const Header = ({
   return (
     <div className="header-main">
       <Link to="/">
-        <img src={logo} alt="" />
+        <img className="logo" src={logo} alt="" />
       </Link>
 
       <Search

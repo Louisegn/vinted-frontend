@@ -59,7 +59,13 @@ const Search = ({
               }}
             >
               <div className="knob">
-                <span>{sort ? "⇣" : "⇡"}</span>
+                <span>
+                  {sort ? (
+                    <i class="fa-solid fa-arrow-up"></i>
+                  ) : (
+                    <i class="fa-solid fa-arrow-down"></i>
+                  )}
+                </span>
               </div>
             </div>
           </span>

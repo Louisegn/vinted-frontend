@@ -1,12 +1,14 @@
 .search-container {
-  //   border: black solid 2px;
   margin-top: 10px;
+  width: 600px;
   .top-part {
+    // border: green solid 1px;
     position: relative;
     color: #bbbbbb;
+    box-sizing: border-box;
     .input-text {
       height: 40px;
-      width: 632px;
+      width: 100%;
       background-color: #f5f6f7;
       border: none;
       border-radius: 8px;
@@ -24,16 +26,25 @@
     display: flex;
     // border: green solid 2px;
     margin: 10px 0;
+    display: flex;
+    align-items: center;
+    height: 60px;
+
     .sort-part {
-      //   border: blue solid 2px;
-      // display: flex;
-      // p {
-      //   font-size: 12px;
-      //   line-height: 10px;
-      //   margin-right: 4px;
-      // }
+      // border: blue solid 2px;
+      width: 30%;
+      height: 100%;
+      display: flex;
+
+      align-items: center;
+      box-sizing: border-box;
+      p {
+        font-size: 12px;
+        line-height: 10px;
+        margin-right: 4px;
+      }
       .checkbox {
-        margin-right: 25px;
+        // border: blue solid 2px;
       }
       .checkbox input[name="price"] {
         display: none;
@@ -43,44 +54,98 @@
         cursor: pointer;
       }
       button,
-      input {
+      input:focus {
         outline: none;
       }
-      .checkbox .wrapper {
-        align-items: center;
-        background-color: #2cb1ba;
-        border-radius: 10px;
-        cursor: pointer;
-        display: inline-flex;
-        height: 20px;
-        outline: none;
-        width: 42px;
-      }
-      .checkbox .knob,
-      .home-loader {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
-      .checkbox .knob {
+
+      .knob {
         background-color: #fff;
-        border: 1px solid #666;
+        border: 2px solid #2db0ba;
         border-radius: 100%;
-        font-weight: 700;
-        height: 16px;
-        left: 0;
-        position: relative;
-        transition: left 0.1s ease-in-out 0s;
-        width: 16px;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .fa-solid {
+          color: #2db0ba;
+        }
+      }
+      .knob:hover {
+        border: 2px solid #017782;
+        .fa-solid {
+          color: #017782;
+        }
       }
     }
     .slide-div {
       // border: red solid 1px;
-      height: 60px;
-      width: 500px;
+      width: 100%;
+      height: 100%;
+
       display: flex;
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
+      .range-container {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .search-container {
+    // border: red solid 1px;
+    width: 480px;
+  }
+}
+
+@media (max-width: 820px) {
+  .search-container {
+    // border: red solid 1px;
+    width: 200px;
+    .top-part {
+      .input-text {
+        height: 28px;
+        width: 100%;
+        background-color: #f5f6f7;
+        border: none;
+        border-radius: 8px;
+        padding-left: 34px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+      .fa-magnifying-glass {
+        position: absolute;
+        top: 6px;
+        left: 10px;
+      }
+    }
+    .bottom-part {
+      flex-direction: column;
+      height: 100%;
+      .sort-part {
+        width: 100%;
+        span {
+          font-size: 11px;
+        }
+      }
+      .slide-div {
+        margin-top: 16px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        // align-items: center;
+        box-sizing: border-box;
+        span {
+          font-size: 11px;
+        }
+        .range-container {
+          width: 60%;
+        }
+      }
     }
   }
 }

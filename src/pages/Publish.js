@@ -63,11 +63,6 @@ const Publish = ({ token }) => {
   };
   return (
     <div className="publish-main">
-      <button
-        onClick={() => {
-          console.log(acceptedFiles[0]);
-        }}
-      ></button>
       <div className="publish-container">
         <h2>Vends ton article</h2>
         <form className="publish-form" onSubmit={handleSubmit}>

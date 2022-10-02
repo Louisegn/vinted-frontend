@@ -1,8 +1,9 @@
 import "../css/signup.scss";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDropzone } from "react-dropzone";
 
 // "email": "johndoe@lereacteur.io",
 // "username": "JohnDoe",
@@ -15,24 +16,46 @@ const SignUp = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [avatar, setAvatar] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const navigate = useNavigate();
+
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles[0]);
+    setAvatar(acceptedFiles[0]);
+    setPreview(URL.createObjectURL(acceptedFiles[0]));
+  }, []);
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+  });
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       setErrorMessage("");
+
+      const formData = new FormData();
+      formData.append("avatar", avatar);
+      formData.append("email", email);
+      formData.append("username", name);
+      formData.append("password", password);
+      formData.append("newsletter", newsletter);
+
       const response = await axios.post(
         "https://vinted-orion.herokuapp.com/user/signup",
-        {
-          email: email,
-          username: name,
-          password: password,
-          newsletter: newsletter,
-        }
+        // "http://localhost:3000/user/signup",
+        formData
+        // {
+        //   email: email,
+        //   username: name,
+        //   password: password,
+        //   newsletter: newsletter,
+        // }
       );
       if (response.data) {
-        console.log("yeeeesss");
+        // console.log("yeeeesss");
         setUser(response.data.token);
         navigate("/");
       }
@@ -49,6 +72,34 @@ const SignUp = ({ setUser }) => {
     <div className="signup-main">
       <h2>S'inscrire</h2>
       <form className="form-container" onSubmit={handleSubmit}>
+        <div>
+          {avatar === null ? (
+            <div className="drop-zone--div">
+              <div {...getRootProps({ className: "dropzone" })}>
+                <input className="input-zone" {...getInputProps()} />
+                <div className="text-center">
+                  <p className="dropzone-content">+ Ajouter une photo</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="img-container">
+              <img
+                className="preview"
+                src={preview}
+                style={{ width: "200px" }}
+                alt=""
+              />
+              <button
+                onClick={() => {
+                  setAvatar(null);
+                }}
+              >
+                Supprimer la photo
+              </button>
+            </div>
+          )}
+        </div>
         <input
           className="input-text"
           type="text"
