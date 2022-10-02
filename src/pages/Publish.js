@@ -25,7 +25,7 @@ const Publish = ({ token }) => {
     setPreview(URL.createObjectURL(acceptedFiles[0]));
   }, []);
 
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
   });
   // console.log(token);
