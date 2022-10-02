@@ -29,7 +29,7 @@ const Home = ({
           value = "price-desc";
         }
         const response = await axios.get(
-          `http://localhost:3000/offers?title=${title}&priceMin=${rangeValues[0]}&priceMax=${rangeValues[1]}&sort=${value}&skip=${skip}&limit=${limit}`
+          `https://vinted-orion.herokuapp.com/offers?title=${title}&priceMin=${rangeValues[0]}&priceMax=${rangeValues[1]}&sort=${value}&skip=${skip}&limit=${limit}`
         );
         // console.log(response.data);
         setData(response.data);

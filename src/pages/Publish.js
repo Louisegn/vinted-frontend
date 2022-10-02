@@ -45,7 +45,7 @@ const Publish = ({ token }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/offer/publish",
+        "https://vinted-orion.herokuapp.com/offer/publish",
         formData,
         {
           headers: {

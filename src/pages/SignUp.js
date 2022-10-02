@@ -22,12 +22,15 @@ const SignUp = ({ setUser }) => {
     try {
       e.preventDefault();
       setErrorMessage("");
-      const response = await axios.post("http://localhost:3000/user/signup", {
-        email: email,
-        username: name,
-        password: password,
-        newsletter: newsletter,
-      });
+      const response = await axios.post(
+        "https://vinted-orion.herokuapp.com/user/signup",
+        {
+          email: email,
+          username: name,
+          password: password,
+          newsletter: newsletter,
+        }
+      );
       if (response.data) {
         console.log("yeeeesss");
         setUser(response.data.token);
