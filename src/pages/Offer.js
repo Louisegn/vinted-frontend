@@ -16,7 +16,7 @@ const Offer = () => {
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
+  console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -62,7 +62,11 @@ const Offer = () => {
             <p>{data.owner.account.username}</p>
             <Link
               to="/payment"
-              state={{ title: data.product_name, price: data.product_price }}
+              state={{
+                title: data.product_name,
+                price: data.product_price,
+                product_id: id,
+              }}
             >
               Acheter
             </Link>

@@ -6,13 +6,13 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 
 const stripePromise = loadStripe(
-  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
+  "pk_test_51LdDZKHKnXW3CDijG5fvmdDImj5DG4IH5GSpwyWGKAzNCu0Gw9liSi1zFOAbRKBgMRLN2KPT18kszxCFgIA9JFiZ005aLw9uri"
 );
 
 const Payment = ({ token }) => {
   const location = useLocation();
-  const { title, price } = location.state;
-  console.log(title, price);
+  const { title, price, product_id } = location.state;
+  // console.log(title, price);
   return (
     <div className="payment-main">
       <div className="payment-container">
@@ -41,7 +41,11 @@ const Payment = ({ token }) => {
         <div className="separator"></div>
         <div className="payment-card">
           <Elements stripe={stripePromise}>
-            <CheckoutForm title={title} price={price} />
+            <CheckoutForm
+              product_title={title}
+              price={price}
+              product_id={product_id}
+            />
           </Elements>
         </div>
       </div>
